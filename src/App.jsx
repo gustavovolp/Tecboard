@@ -1,61 +1,64 @@
 import './App.css'
+import { FormularioDeEvento } from './Componentes/FormularioDeEvento';
+import { Header } from './componentes/Header';
+import { Tema } from './componentes/Tema';
+import { Banner } from './componentes/Banner';
+import { CardEvento } from './componentes/CardEvento';
 
-//  No react, componentes são funções
-// props é um OBJETO, props.children
-
-function TituloFormulario(props){
-  return (
-    <h2>{props.children}</h2>
-  )
-}
-
-function CampoDeFormulario({children}){
-  return(
-    <fieldset>
-      {children}
-    </fieldset>
-  )
-}
-
-function Label({children, htmlFor}){
-  return(
-    <label htmlFor={htmlFor}>
-      {children}
-    </label>
-  )
-}
-
-function CampoDeEntrada({props}){
-  return <input {...props} />
-}
-
-function FormularioDeEvento(){
-  return(
-    <form className='form-evento'>
-      <TituloFormulario>
-        Preencha para criar um evento:
-      </TituloFormulario>
-      <CampoDeFormulario>
-        <Label htmlFor='nome'>Qual o nome do evento?</Label>
-        <CampoDeEntrada type='text' id='nome' placeholder='Summer dev hits' name='nomeEvento'/>
-      </CampoDeFormulario>
-      
-    </form>
-  )
-}
 
 function App() {
+
+  const temas = [
+    {
+      id: 1,
+      nome: 'front-end'
+    },
+    {
+      id: 2,
+      nome: 'back-end'
+    },
+    {
+      id: 3,
+      nome: 'devops'
+    },
+    {
+      id: 4,
+      nome: 'inteligência artificial'
+    }, {
+      id: 5,
+      nome: 'data science'
+    },
+    {
+      id: 6,
+      nome: 'cloud'
+    }
+
+  ]
+
+const eventos = [
+  {
+    capa: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png',
+    tema: temas[0],
+    data: new Date(),
+    titulo: 'Mulher no frontend'
+  }
+]
   return (
     <main>
-      <header>
-        <img src='/logo.png' alt='logo'/>
-      </header>
-      <section>
-        <img src='/banner.png' alt='Banner Image'/>
-      </section>
-      <FormularioDeEvento/>
+      <Header />
+      <Banner />
+      <FormularioDeEvento />
+      {temas.map(function (item){
+        return (
+          <section key={item.id}>
+            <Tema tema={item} />
+            <CardEvento evento={eventos[0]} />
+          </section>
+        )
+      })}
+      
     </main>
-   
+
   )
 }
 

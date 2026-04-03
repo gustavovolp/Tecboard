@@ -1,0 +1,14 @@
+.btnSubmit {
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #17D9B1;
+    color: #212121;
+    line-height: 120%;
+    border: none;
+}
+
+.btnSubmit:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
