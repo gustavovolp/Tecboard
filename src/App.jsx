@@ -1,9 +1,10 @@
 import './App.css'
-import { FormularioDeEvento } from './Componentes/FormularioDeEvento';
+import { FormularioDeEvento } from './componentes/FormularioDeEvento';
 import { Header } from './componentes/Header';
 import { Tema } from './componentes/Tema';
 import { Banner } from './componentes/Banner';
 import { CardEvento } from './componentes/CardEvento';
+import { ListaSuspensa } from './componentes/ListaSuspensa';
 
 
 function App() {
@@ -47,7 +48,7 @@ const eventos = [
     <main>
       <Header />
       <Banner />
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={temas}/>
       {temas.map(function (item){
         return (
           <section key={item.id}>
