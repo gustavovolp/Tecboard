@@ -4,7 +4,6 @@ import { Header } from './componentes/Header';
 import { Tema } from './componentes/Tema';
 import { Banner } from './componentes/Banner';
 import { CardEvento } from './componentes/CardEvento';
-import { ListaSuspensa } from './componentes/ListaSuspensa';
 
 
 function App() {
@@ -44,16 +43,26 @@ const eventos = [
     titulo: 'Mulher no frontend'
   }
 ]
+
+function adicionarEvento(evento) {
+  eventos.push(evento);
+  console.log(eventos);
+}
   return (
     <main>
       <Header />
       <Banner />
-      <FormularioDeEvento temas={temas}/>
+      <FormularioDeEvento 
+      temas={temas} 
+      aoSubmeter={adicionarEvento} 
+      />
       {temas.map(function (item){
         return (
           <section key={item.id}>
             <Tema tema={item} />
-            <CardEvento evento={eventos[0]} />
+            {eventos.map(function (item, index){
+              return <CardEvento evento={item} key={index} />
+            })}
           </section>
         )
       })}

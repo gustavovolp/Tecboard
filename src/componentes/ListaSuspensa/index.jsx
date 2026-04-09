@@ -1,8 +1,8 @@
 import './lista-suspensa.estilo.css'
 
-export function ListaSuspensa({ itens, ...rest }) {
+export function ListaSuspensa ({ itens, ...rest }) {
     return (
-        <select {...rest}className='lista-suspensa-form' defaultValue=''>
+        <select {...rest} className='lista-suspensa-form' defaultValue=''>
             <option value='' disabled>
                 Selecione uma opção
             </option>
